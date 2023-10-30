@@ -1,0 +1,179 @@
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    <title>Nike Store</title>
+</head>
+
+<body>
+    <nav id="nav">
+        <div class="navTop">
+            <div class="navItem">
+                <img src="{% static 'img/sneakers.png' %}" alt="">
+            </div>
+            <div class="navItem">
+                <form method="GET" action="/">
+                    <div class="search">
+                        <label class="label_search" for="search">Search Shoe:</label>
+                        
+                            <input type="text"  class="searchInput" id="search" name="searchs">
+                        
+                        <button type="submit" class="search-button">Search</button>
+                    </div>
+                </form>
+            </div>
+            <div class="navItem">
+                <span class="limitedOffer">Limited Offer!</span>
+            </div>
+        </div>
+        <div class="navBottom">
+            {% for shoe in shoes %}
+                <h3 class="menuItem">{{shoe.name|upper}}</h3>
+            {% endfor %}
+            
+        </div>
+    </nav>
+    <div class="slider">
+        <div class="sliderWrapper">
+            {% for shoe in shoes %}
+            <div class="sliderItem">
+                <img src="{{shoe.image.url}}" alt="" class="sliderImg">
+                <div class="sliderBg"></div>
+                <h1 class="sliderTitle">{{shoe.name}}</br> NEW</br> SEASON</h1>
+                <h2 class="sliderPrice">${{shoe.price}}</h2>
+                <a href="{% url "details" shoe.name%}">
+                    <button class="buyButton">View Details</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+   
+    <div class="features">
+        <div class="feature">
+            <img src="{% static 'img/shipping.png' %}" alt="" class="featureIcon">
+            <span class="featureTitle">FREE SHIPPING</span>
+            <span class="featureDesc">Free worldwide shipping on all orders.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{% static 'img/return.png' %}" alt="">
+            <span class="featureTitle">30 DAYS RETURN</span>
+            <span class="featureDesc">No question return and easy refund in 14 days.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{% static 'img/gift.png' %}" alt="">
+            <span class="featureTitle">GIFT CARDS</span>
+            <span class="featureDesc">Buy gift cards and use coupon codes easily.</span>
+        </div>
+        <div class="feature">
+            <img class="featureIcon" src="{% static 'img/contact.png' %}" alt="">
+            <span class="featureTitle">CONTACT US!</span>
+            <span class="featureDesc">Keep in touch via email and support system.</span>
+        </div>
+    </div>
+
+    
+    <div class="gallery">
+        <div class="galleryItem">
+            <h1 class="galleryTitle">Be Yourself!</h1>
+            <img src="https://images.pexels.com/photos/9295809/pexels-photo-9295809.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="" class="galleryImg">
+        </div>
+        <div class="galleryItem">
+            <img src="https://images.pexels.com/photos/1040427/pexels-photo-1040427.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="" class="galleryImg">
+            <h1 class="galleryTitle">This is the First Day of Your New Life</h1>
+        </div>
+        <div class="galleryItem">
+            <h1 class="galleryTitle">Just Do it!</h1>
+            <img src="https://images.pexels.com/photos/7856965/pexels-photo-7856965.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="" class="galleryImg">
+        </div>
+    </div>
+    <div class="newSeason">
+        <div class="nsItem">
+            <img src="https://images.pexels.com/photos/4753986/pexels-photo-4753986.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="" class="nsImg">
+        </div>
+        <div class="nsItem">
+            <h3 class="nsTitleSm">WINTER NEW ARRIVALS</h3>
+            <h1 class="nsTitle">New Season</h1>
+            <h1 class="nsTitle">New Collection</h1>
+            <a href="#nav">
+                <button class="nsButton">CHOOSE YOUR STYLE</button>
+            </a>
+        </div>
+        <div class="nsItem">
+            <img src="https://images.pexels.com/photos/7856965/pexels-photo-7856965.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+                alt="" class="nsImg">
+        </div>
+    </div>
+    <footer>
+        <div class="footerLeft">
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">About Us</h1>
+                <ul class="fList">
+                    <li class="fListItem">Company</li>
+                    <li class="fListItem">Contact</li>
+                    <li class="fListItem">Careers</li>
+                    <li class="fListItem">Affiliates</li>
+                    <li class="fListItem">Stores</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Useful Links</h1>
+                <ul class="fList">
+                    <li class="fListItem">Support</li>
+                    <li class="fListItem">Refund</li>
+                    <li class="fListItem">FAQ</li>
+                    <li class="fListItem">Feedback</li>
+                    <li class="fListItem">Stories</li>
+                </ul>
+            </div>
+            <div class="footerMenu">
+                <h1 class="fMenuTitle">Products</h1>
+                <ul class="fList">
+                    <li class="fListItem">Air Force</li>
+                    <li class="fListItem">Air Jordan</li>
+                    <li class="fListItem">Blazer</li>
+                    <li class="fListItem">Crater</li>
+                    <li class="fListItem">Hippie</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footerRight">
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Subscribe to our newsletter</h1>
+                <form action="/" method="POST">
+                    {% csrf_token %}
+                <div class="fMail">
+                    <input type="text" placeholder="your@email.com" class="fInput" name="email">
+                    <button class="fButton" type="submit">Join!</button>
+                </div>
+                </form>
+            </div>
+            <div class="footerRightMenu">
+                <h1 class="fMenuTitle">Follow Us</h1>
+                <div class="fIcons">
+                    <img src="{% static 'img/facebook.png' %}" alt="" class="fIcon">
+                    <img src="{% static 'img/twitter.png' %}" alt="" class="fIcon">
+                    <img src="{% static 'img/instagram.png' %}" alt="" class="fIcon">
+                    <img src="{% static 'img/whatsapp.png' %}" alt="" class="fIcon">
+                </div>
+            </div>
+            <div class="footerRightMenu">
+                <span class="copyright">@Ugyen. All rights reserved. 2023.</span>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'app.js' %}"></script>
+</body>
+
+</html>
