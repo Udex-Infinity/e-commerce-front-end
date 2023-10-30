@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{{shoe.name}}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+    </head>
+    <body>
+        <div class="product" id="product">
+            <img src="{{shoe.image.url}}" alt="" class="productImg">
+            <div class="productDetails">
+                <h1 class="productTitle">{{shoe.name}}</h1>
+                <h2 class="productPrice">${{shoe.price}}</h2>
+                <p class="productDesc">{{shoe.description}}</p>
+                <div class="colors">
+                    <div class="color"></div>
+                    <div class="color"></div>
+                </div>
+                <div class="sizes">
+                    <div class="size">42</div>
+                    <div class="size">43</div>
+                    <div class="size">44</div>
+                </div>
+                <a href="{% url "payment" shoe.name%}"><button class="productButton">BUY NOW!</button></a>
+            </div>
+        </div>
+        
+        <script src="" async defer></script>
+    </body>
+</html>

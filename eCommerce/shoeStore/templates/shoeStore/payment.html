@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Payment</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style/payment.css' %}">
+    </head>
+    <body>
+        
+        <form class="form" method="POST" action="/{{shoe_name}}/payment">
+            {% csrf_token %}
+            {% for field in payment_form %}
+            <div class="form-control">
+                {{field.label_tag}}
+                {{field}}
+                {{field.errors}}
+            </div>
+            {% endfor %}
+            <button type='submit'>submit</button>
+        </form>
+                
+        
+        <script src="" async defer></script>
+    </body>
+</html>
